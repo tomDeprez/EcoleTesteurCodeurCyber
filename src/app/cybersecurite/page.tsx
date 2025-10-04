@@ -69,16 +69,46 @@ const CyberSecuritePage = () => {
 
           {/* Right Column: Price & CTA */}
           <div>
-            <div className="sticky top-24">
-              <div className="bg-background-light border border-border-color rounded-lg p-6 text-center">
-                <h3 className="text-2xl font-bold mb-2">Prix de la formation</h3>
-                <p className="text-4xl font-extrabold text-accent-primary mb-2">1000€</p>
-                <p className="text-text-secondary mb-6">/ mois</p>
-                <Link href="#" className="w-full inline-block bg-accent-primary text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-accent-secondary transition-transform transform hover:scale-105">
-                  Postuler maintenant
+            <aside className="sticky top-28 h-fit">
+              {/* === NOUVELLE CARTE CTA AMÉLIORÉE === */}
+              <div className="cta-card">
+                <div className="cta-header">
+                  <h3>Prêt à devenir un expert ?</h3>
+                </div>
+
+                <div className="cta-price-section">
+                  <div className="price-value">
+                    <span>1000€</span>
+                    <span className="price-period">/ mois</span>
+                  </div>
+                  <p className="cta-info">Financement possible via Pôle Emploi, CPF et autres dispositifs.</p>
+                </div>
+                
+                <Link href="/contact" className="btn btn-primary btn-glow w-full text-center">
+                  Postuler maintenant <FiChevronRight className="inline ml-1" />
                 </Link>
+
+                <div className="cta-divider"></div>
+
+                <div className="cta-features-grid">
+                  <div className="feature-item">
+                    <FiClock />
+                    <span className="value">4 mois</span>
+                    <span className="label">Intensifs</span>
+                  </div>
+                  <div className="feature-item">
+                    <FiBriefcase />
+                    <span className="value">Projet</span>
+                    <span className="label">Professionnel</span>
+                  </div>
+                  <div className="feature-item">
+                    <FiAward />
+                    <span className="value">Certification</span>
+                    <span className="label">Reconnue</span>
+                  </div>
+                </div>
               </div>
-            </div>
+            </aside>
           </div>
         </div>
       </div>

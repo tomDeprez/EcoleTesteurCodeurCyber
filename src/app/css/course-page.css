@@ -1,0 +1,48 @@
+/* /app/course-page.css */
+
+/* --- Hero de la Page Formation --- */
+.course-hero-section { --grid-color: rgba(79, 70, 229, 0.2); padding: 100px 24px 80px; text-align: center; background-color: var(--color-bg-dark); position: relative; overflow: hidden; border-bottom: 1px solid var(--color-border); }
+.course-hero-section::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(to right, var(--grid-color) 1px, transparent 1px), linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px); background-size: 50px 50px; animation: scrollGrid 20s linear infinite; opacity: 0.5; }
+@keyframes scrollGrid { from { background-position: 0 0; } to { background-position: 50px 50px; } }
+.hero-breadcrumb { color: var(--color-accent); margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem; }
+.course-title { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; color: white; background: linear-gradient(145deg, white, #c7d2fe); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 20px rgba(129, 140, 248, 0.3); margin-bottom: 1rem; }
+.course-subtitle { font-size: 1.125rem; line-height: 1.7; max-width: 700px; margin: 0 auto; color: var(--color-text-light); }
+.course-main-content { background-color: var(--color-bg-dark); padding: 80px 24px 0; }
+.section-heading { font-size: 2rem; font-weight: 700; color: white; margin-bottom: 2.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--color-border); }
+
+/* --- Timeline du Programme --- */
+.curriculum-timeline ul { list-style: none; padding: 0; position: relative; }
+.curriculum-timeline ul::before { content: ''; position: absolute; top: 10px; bottom: 10px; left: 11px; width: 2px; background: linear-gradient(to bottom, transparent, var(--color-primary), transparent); border-radius: 2px; }
+.timeline-item { position: relative; padding-left: 45px; margin-bottom: 2.5rem; }
+.timeline-dot { position: absolute; left: 0; top: 0; width: 24px; height: 24px; background-color: var(--color-bg-dark); border: 2px solid var(--color-primary); border-radius: 50%; box-shadow: 0 0 10px var(--color-primary); transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; }
+.timeline-dot svg { font-size: 14px; color: var(--color-primary); transition: color 0.3s ease; }
+.timeline-item:hover .timeline-dot { transform: scale(1.2); background-color: var(--color-primary); box-shadow: 0 0 20px var(--color-primary), 0 0 30px var(--color-primary-light); }
+.timeline-item:hover .timeline-dot svg { color: white; }
+.timeline-content { background: var(--color-bg-card-dark); border: 1px solid var(--color-border); border-radius: 8px; padding: 1.5rem; transition: transform 0.3s ease, border-color 0.3s ease; }
+.timeline-item:hover .timeline-content { transform: translateX(10px); border-color: var(--color-primary); }
+.timeline-title { font-size: 1.25rem; font-weight: 600; color: white; margin-bottom: 0.5rem; }
+.timeline-text { color: var(--color-text-light); line-height: 1.6; }
+
+/* --- Carte CTA Flottante --- */
+.cta-card { background-color: rgba(30, 30, 30, 0.7); backdrop-filter: blur(16px); border: 1px solid var(--color-border); border-radius: 12px; padding: 2rem; box-shadow: 0 0 30px rgba(79, 70, 229, 0.2); display: flex; flex-direction: column; gap: 1.5rem; }
+.cta-header h3 { font-size: 1.5rem; font-weight: 700; color: white; text-align: center; }
+.cta-price-section { text-align: center; }
+.price-value { display: flex; justify-content: center; align-items: baseline; gap: 0.5rem; font-weight: 800; color: white; margin-bottom: 0.5rem; }
+.price-value span:first-child { font-size: 3.5rem; line-height: 1; }
+.price-period { font-size: 1rem; font-weight: 500; color: var(--color-text-light); }
+.cta-info { font-size: 0.875rem; color: var(--color-text-light); max-width: 250px; margin: 0 auto; }
+.btn-glow { box-shadow: 0 0 15px rgba(79, 70, 229, 0.5), 0 0 25px rgba(79, 70, 229, 0.3); transition: all 0.3s ease; }
+.btn-glow:hover { box-shadow: 0 0 25px rgba(99, 102, 241, 0.7), 0 0 40px rgba(99, 102, 241, 0.5); transform: scale(1.03); }
+.cta-divider { height: 1px; width: 100%; background: linear-gradient(to right, transparent, var(--color-border), transparent); }
+.cta-features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; text-align: center; }
+.feature-item { display: flex; flex-direction: column; align-items: center; gap: 0.25rem; }
+.feature-item svg { font-size: 1.5rem; color: var(--color-accent); margin-bottom: 0.25rem; }
+.feature-item .value { font-weight: 600; color: white; font-size: 1rem; }
+.feature-item .label { font-size: 0.75rem; color: var(--color-text-light); text-transform: uppercase; }
+
+/* --- Section de fin de page "Prochaines Étapes" --- */
+.next-steps-section { text-align: center; padding: 80px 24px; margin-top: 80px; position: relative; }
+.next-steps-section::before { content: ''; position: absolute; top: 0; left: 10%; right: 10%; height: 1px; background: linear-gradient(to right, transparent, var(--color-border), transparent); }
+.next-steps-section h2 { font-size: 2.25rem; font-weight: 800; color: white; margin-bottom: 1rem; }
+.next-steps-section p { max-width: 600px; margin: 0 auto 2rem auto; color: var(--color-text-light); line-height: 1.7; }
+.next-steps-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; }

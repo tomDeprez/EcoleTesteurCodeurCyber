@@ -1,87 +1,115 @@
-import Link from 'next/link';
-import Image from 'next/image';
+'use client';
 
-const courseName = "Formation Testeur Logiciel à Lyon";
+import Link from 'next/link';
+import { 
+  FiChevronRight, 
+  FiCheckCircle, 
+  FiBookOpen, 
+  FiTarget, 
+  FiZap, 
+  FiAward,
+  FiClock,
+  FiBriefcase
+} from 'react-icons/fi';
+import { 
+  SiCypress, 
+  SiPostman, 
+  SiJenkins, 
+  SiJira 
+} from 'react-icons/si';
+
+// Importer le fichier CSS spécifique à cette page
+import '../css/course-page.css';
+
+const courseName = "Formation Testeur Logiciel";
 const courseDescription = "Devenez un expert en assurance qualité, capable de garantir des applications sans bugs. Apprenez les méthodologies de test, l'automatisation et les outils qui dominent le marché.";
 
 const TesteurPage = () => {
-  const courseJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "EducationalCourse",
-    "name": courseName,
-    "description": courseDescription,
-    "provider": {
-      "@type": "Organization",
-      "name": "EcoleTesteurCodeurCyber",
-      "sameAs": "http://localhost:3000" // Replace with actual domain
-    }
-  };
+  const courseJsonLd = { /* ... */ };
 
   const curriculum = [
-    "Fondamentaux du Test Logiciel (ISTQB)",
-    "Tests Manuels et Stratégies de Test",
-    "Automatisation des tests web avec Selenium et Cypress",
-    "Tests d'API avec Postman et REST Assured",
-    "Tests de performance avec JMeter",
-    "Intégration Continue (CI/CD) avec Jenkins",
-    "Gestion des anomalies avec Jira",
+    { icon: <FiBookOpen />, title: "Module 1: Fondamentaux du Test Logiciel", content: "Maîtrisez les concepts clés de l'ISTQB et les principes de l'assurance qualité." },
+    { icon: <FiTarget />, title: "Module 2: Tests Manuels et Stratégies", content: "Apprenez à concevoir et exécuter des plans de test efficaces pour tout type d'application." },
+    { icon: <SiCypress />, title: "Module 3: Automatisation avec Cypress", content: "Bâtissez des scripts de test robustes pour les applications web modernes." },
+    { icon: <SiPostman />, title: "Module 4: Tests d'API avec Postman", content: "Validez la logique métier et les endpoints de vos services back-end." },
+    { icon: <FiZap />, title: "Module 5: Tests de Performance avec JMeter", content: "Simulez des charges utilisateurs pour garantir la scalabilité et la réactivité." },
+    { icon: <SiJenkins />, title: "Module 6: Intégration Continue (CI/CD)", content: "Intégrez vos tests dans des pipelines automatisés avec Jenkins et GitLab CI." },
+    { icon: <SiJira />, title: "Module 7: Gestion des Anomalies avec Jira", content: "Utilisez Jira pour un suivi précis des bugs et communiquez efficacement vos résultats." },
+    { icon: <FiAward />, title: "Module 8: Projet Final et Certification", content: "Appliquez vos compétences sur un projet réel et préparez votre certification." },
   ];
 
   return (
-    <div className="bg-background-dark">
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseJsonLd) }}
       />
       
-      {/* Hero Section */}
-      <div className="relative py-20 sm:py-28 bg-background-light">
-        <div className="absolute inset-0 opacity-10">
-          <Image
-            src="/img-tempo/testeur.png" // Re-using card image for hero
-            alt="Illustration conceptuelle pour la Formation Testeur Logiciel à Lyon"
-            layout="fill"
-            objectFit="cover"
-          />
+      <section className="course-hero-section">
+        <div className="container">
+          <p className="hero-breadcrumb">Formations / Qualité Logicielle</p>
+          <h1 className="course-title">{courseName}</h1>
+          <p className="course-subtitle">{courseDescription}</p>
         </div>
-        <div className="relative container mx-auto px-4 text-center">
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-accent-primary">{courseName}</h1>
-          <p className="mt-4 max-w-3xl mx-auto text-lg text-text-secondary">{courseDescription}</p>
-        </div>
-      </div>
+      </section>
 
-      {/* Main Content */}
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid lg:grid-cols-3 gap-12">
-          {/* Left Column: Curriculum */}
-          <div className="lg:col-span-2">
-            <h2 className="text-3xl font-bold text-accent-primary mb-6">Programme de la formation</h2>
-            <ul className="space-y-3">
-              {curriculum.map((item, index) => (
-                <li key={index} className="p-4 bg-background-light rounded-lg border border-border-color flex items-center">
-                  <span className="text-accent-primary font-bold mr-4">&rarr;</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Right Column: Price & CTA */}
-          <div>
-            <div className="sticky top-24">
-              <div className="bg-background-light border border-border-color rounded-lg p-6 text-center">
-                <h3 className="text-2xl font-bold mb-2">Prix de la formation</h3>
-                <p className="text-4xl font-extrabold text-accent-primary mb-2">1000€</p>
-                <p className="text-text-secondary mb-6">/ mois</p>
-                <Link href="#" className="w-full inline-block bg-accent-primary text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-accent-secondary transition-transform transform hover:scale-105">
-                  Postuler maintenant
-                </Link>
+      <main className="course-main-content">
+        <div className="container">
+          <div className="grid lg:grid-cols-3 gap-12">
+            <div className="lg:col-span-2">
+              <h2 className="section-heading">Votre parcours d'apprentissage</h2>
+              <div className="curriculum-timeline">
+                <ul>
+                  {curriculum.map((item, index) => (
+                    <li key={index} className="timeline-item">
+                      <div className="timeline-dot">{item.icon}</div>
+                      <div className="timeline-content">
+                        <h3 className="timeline-title">{item.title}</h3>
+                        <p className="timeline-text">{item.content}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
+            <aside className="sticky top-28 h-fit">
+              <div className="cta-card">
+                <div className="cta-header">
+                  <h3>Prêt à devenir un expert ?</h3>
+                </div>
+                <div className="cta-price-section">
+                  <div className="price-value">
+                    <span>1000€</span>
+                    <span className="price-period">/ mois</span>
+                  </div>
+                  <p className="cta-info">Financement possible via Pôle Emploi, CPF et autres dispositifs.</p>
+                </div>
+                <Link href="/contact" className="btn btn-primary btn-glow w-full text-center">
+                  Postuler maintenant <FiChevronRight className="inline ml-1" />
+                </Link>
+                <div className="cta-divider"></div>
+                <div className="cta-features-grid">
+                  <div className="feature-item"><FiClock /><span className="value">4 mois</span><span className="label">Intensifs</span></div>
+                  <div className="feature-item"><FiBriefcase /><span className="value">Projet</span><span className="label">Professionnel</span></div>
+                  <div className="feature-item"><FiAward /><span className="value">Certification</span><span className="label">Reconnue</span></div>
+                </div>
+              </div>
+            </aside>
           </div>
         </div>
-      </div>
-    </div>
+        
+        <section className="next-steps-section">
+            <div className="container">
+                <h2>Prêt à Lancer Votre Carrière ?</h2>
+                <p>N'attendez plus pour transformer votre passion pour la tech en une expertise recherchée par les meilleures entreprises.</p>
+                <div className="next-steps-buttons">
+                    <Link href="/contact" className="btn btn-primary btn-glow">Postuler à la Formation</Link>
+                    <Link href="/brochure" className="btn btn-secondary">Télécharger la brochure</Link>
+                </div>
+            </div>
+        </section>
+      </main>
+    </>
   );
 };
 
