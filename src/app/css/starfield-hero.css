@@ -1,0 +1,116 @@
+/* /app/css/starfield-hero.css */
+
+.starfield-hero-section {
+  --star-color: #ffffff;
+  --star-bg: #0d1024;
+  height: 60vh;
+  min-height: 450px;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, var(--star-bg) 100%);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Base pour les couches d'étoiles */
+.stars, .stars2, .stars3 {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  animation-name: animStar;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* Couche 1: Étoiles rapides (proches) */
+.stars {
+  box-shadow: 
+    -179px 697px var(--star-color), 16px -339px var(--star-color), 
+    39px -23px var(--star-color), 332px -431px var(--star-color), 
+    /* ... Ajoutez autant d'étoiles que vous voulez */
+    -478px -216px var(--star-color), 441px -379px var(--star-color), 
+    -147px 11px var(--star-color), 4px -207px var(--star-color);
+  animation-duration: 50s;
+}
+
+/* Couche 2: Étoiles moyennes */
+.stars2 {
+  box-shadow: 
+    -417px -496px var(--star-color), 395px 128px var(--star-color), 
+    -364px 499px var(--star-color), -211px 184px var(--star-color), 
+    /* ... */
+    -189px 402px var(--star-color), 44px -485px var(--star-color), 
+    -340px 189px var(--star-color), 25px 233px var(--star-color);
+  animation-duration: 100s;
+}
+
+/* Couche 3: Étoiles lentes (lointaines) */
+.stars3 {
+  box-shadow: 
+    -195px 230px var(--star-color), 153px 456px var(--star-color), 
+    -214px 28px var(--star-color), 415px 446px var(--star-color), 
+    /* ... */
+    -419px 21px var(--star-color), 496px 141px var(--star-color), 
+    -180px -401px var(--star-color), 40px -301px var(--star-color);
+  animation-duration: 150s;
+}
+
+@keyframes animStar {
+  from { transform: translateY(0px); }
+  to { transform: translateY(-2000px); }
+}
+
+/* Contenu textuel au-dessus de l'animation */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  color: white;
+  animation: fadeIn 2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-content .hero-breadcrumb {
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.hero-content .course-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  background: linear-gradient(145deg, white, #c7d2fe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.2), 0 0 30px rgba(129, 140, 248, 0.4);
+  margin-bottom: 1rem;
+}
+
+.hero-content .course-subtitle {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--color-text-light);
+  text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+/* Vignette pour concentrer le regard */
+.starfield-hero-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.7) 100%);
+  z-index: 5;
+}

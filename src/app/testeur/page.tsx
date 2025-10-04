@@ -18,8 +18,9 @@ import {
   SiJira 
 } from 'react-icons/si';
 
-// Importer le fichier CSS spécifique à cette page
+// Importer les deux fichiers CSS nécessaires
 import '../css/course-page.css';
+import '../css/starfield-hero.css'; // NOUVEL IMPORT
 
 const courseName = "Formation Testeur Logiciel";
 const courseDescription = "Devenez un expert en assurance qualité, capable de garantir des applications sans bugs. Apprenez les méthodologies de test, l'automatisation et les outils qui dominent le marché.";
@@ -45,13 +46,17 @@ const TesteurPage = () => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseJsonLd) }}
       />
       
-      <section className="course-hero-section">
-        <div className="container">
+      {/* === NOUVEAU HERO "VITESSE LUMIÈRE" === */}
+      <header className="starfield-hero-section">
+        <div className="stars"></div>
+        <div className="stars2"></div>
+        <div className="stars3"></div>
+        <div className="hero-content">
           <p className="hero-breadcrumb">Formations / Qualité Logicielle</p>
           <h1 className="course-title">{courseName}</h1>
           <p className="course-subtitle">{courseDescription}</p>
         </div>
-      </section>
+      </header>
 
       <main className="course-main-content">
         <div className="container">

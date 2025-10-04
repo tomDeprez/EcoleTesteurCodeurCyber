@@ -1,0 +1,70 @@
+/* /app/css/matrix-hero.css */
+
+.matrix-hero-section {
+  --matrix-green: #00ff41;
+  background-color: #000;
+  height: 60vh;
+  min-height: 450px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--color-border);
+}
+
+#matrix-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.matrix-hero-section .hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  color: var(--matrix-green);
+  font-family: 'Courier New', Courier, monospace; /* Police Hacker */
+  animation: flicker 3s infinite alternate;
+}
+
+@keyframes flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow:
+      0 0 4px var(--matrix-green),
+      0 0 11px var(--matrix-green),
+      0 0 19px var(--matrix-green),
+      0 0 40px #0fa,
+      0 0 80px #0fa;
+  }
+  20%, 24%, 55% { text-shadow: none; }
+}
+
+.matrix-hero-section .hero-breadcrumb {
+  color: var(--matrix-green);
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.matrix-hero-section .course-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  color: #fff; /* Le titre principal est blanc pour contraster */
+  text-shadow: 0 0 10px var(--matrix-green), 0 0 20px var(--matrix-green);
+  margin-bottom: 1rem;
+}
+
+.matrix-hero-section .course-subtitle {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #c3ffc3; /* Vert plus pâle pour la lisibilité */
+  text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+}
